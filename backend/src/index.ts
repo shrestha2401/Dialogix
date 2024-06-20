@@ -22,7 +22,7 @@ mongoose.connect(mongoURI)
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRouter);
+app.use('/auth', authRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello TypeScript Backend!');
