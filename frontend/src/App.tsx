@@ -1,17 +1,33 @@
-// src/App.tsx
-import React from 'react';
-import ChatBar from './pages/try'
+import React, { useState } from 'react';
 import Chat from './pages/Chats';
+import ChatBar from './pages/try';
 
 const App: React.FC = () => {
+  // State to hold the current chat message
+  const [currentChat, setCurrentChat] = useState<string>('');
+
+  // Function to handle chat list item click
+  const handleChatItemClick = (chatMessage: string) => {
+    setCurrentChat(chatMessage);
+  };
+
+  // Example chat lists
+  const chatLists: string[] = [
+    'Hello! How are you?',
+    'Are we meeting today?',
+    'Don’t forget to send the report.',
+    'Happy Birthday!',
+    'Good night!'
+  ];
+
   return (
-    <div className="flex justify-center  h-screen  rounded-md" style={{ backgroundImage: `url(https://c4.wallpaperflare.com/wallpaper/527/757/70/aesthetic-neon-wallpaper-preview.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-    <div className="max-w-screen-xl w-full flex my-6 bg-opacity-50 bg-gray-800 rounded-lg">
-      <ChatBar />
-      <Chat />
+    <div className="flex justify-center h-screen rounded-md">
+      <div className="max-w-screen-xl w-full flex my-6 bg-gray-100 border border-gray-300 rounded-lg">
+        <ChatBar chatLists={chatLists} onChatItemClick={handleChatItemClick} />
+        <Chat message={currentChat} />
+      </div>
     </div>
-  </div>
   );
-}
+};
 
 export default App;

@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Chat = () => {
+interface ChatProps {
+  message: string;
+}
+
+const Chat: React.FC<ChatProps> = ({ message }) => {
   return (
-    <div className="flex-1 bg-gray-200 bg-opacity-75 flex  justify-center ">
-      <h1 className="text-3xl font-bold text-gray-800">Chat Section</h1>
+    <div className="flex-1 p-4">
+      <p className="text-lg font-semibold">Chatting Section</p>
+      <div className="bg-white p-4 border border-gray-300 rounded mt-4">
+        <p className="text-gray-600">{message}</p>
+      </div>
     </div>
   );
 };

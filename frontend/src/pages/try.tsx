@@ -1,51 +1,29 @@
 import React from 'react';
 
-const recentChats = [
-  'Hello! How are you?',
-  'Are we meeting today?',
-  'Don’t forget to send the report.',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Happy Birthday!',
-  'Good night!'
-];
+interface ChatBarProps {
+  chatLists: string[];
+  onChatItemClick: (chatMessage: string) => void;
+}
 
-const ChatBar = () => {
+const ChatBar: React.FC<ChatBarProps> = ({ chatLists, onChatItemClick }) => {
   return (
-    <div className="h-full w-80  bg-gray-100 border-r border-gray-300 flex flex-col rounded-md bg-opacity-75 flex-none">
+    <div className="w-80 bg-gray-100 border-r border-gray-300 flex flex-col">
       <div className="p-4 border-b border-gray-200">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center mb-2">
-        <img
-      src={`https://w7.pngwing.com/pngs/589/83/png-transparent-account-avatar-contact-people-profile-user-basic-icon.png`}
-      className="w-10 h-10 rounded-full mr-4"
-      alt="Avatar"
-        />
-        <h3 className="text-lg font-semibold mb-2">Krishna Agrawal</h3>
-   </div>
-  <img
-    src={`https://png.pngtree.com/png-vector/20190214/ourmid/pngtree-vector-plus-icon-png-image_515260.jpg`}
-    className="w-8 h-8 rounded-full mb-2"
-    alt="Icon"
-  />
-        </div>
-
+        <h3 className="text-lg font-semibold mb-2 text-center">Krishna Agrawal</h3>
         <input
           type="text"
           placeholder="Search"
-          className="px-3 py-2 bg-white rounded-full border border-gray-300 focus:outline-none focus:border-blue-500"
+          className="px-3 py-2 bg-white rounded border border-gray-300 focus:outline-none focus:border-blue-500"
         />
       </div>
       <div className="flex-1 overflow-y-auto">
         <ul>
-          {recentChats.map((chat, index) => (
-            <li key={index} className="p-4 border-b border-gray-200 last:border-none">
+          {chatLists.map((chat, index) => (
+            <li
+              key={index}
+              className="p-4 border-b border-gray-200 last:border-none cursor-pointer"
+              onClick={() => onChatItemClick(chat)}
+            >
               <div className="flex items-center">
                 <img
                   src={`https://w7.pngwing.com/pngs/589/83/png-transparent-account-avatar-contact-people-profile-user-basic-icon.png`}
