@@ -21,8 +21,14 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center h-screen rounded-md">
-      <div className="max-w-screen-xl w-full flex my-6 bg-gray-100 border border-gray-300 rounded-lg">
+    <div className="flex justify-center h-screen rounded-md"
+    style={{
+      backgroundImage: `url('https://cdn.wallpapersafari.com/8/65/3JE9fy.png')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}
+    >
+      <div className="max-w-screen-xl w-full flex my-6 bg-gray-100 border border-gray-300 rounded-lg opacity-90">
         <SideBar/>
         <ChatBar chatLists={chatLists} onChatItemClick={handleChatItemClick} />
         <Chat message={currentChat} />
