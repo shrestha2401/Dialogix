@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+
 interface ChatProps {
   message: string;
 }
@@ -11,6 +12,11 @@ const Chat: React.FC<ChatProps> = ({ message }) => {
     // Logic to send a message
     console.log('Sending message:', newMessage);
     setNewMessage(''); // Clear the input after sending the message
+  };
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSendMessage();
+    }
   };
   return (
     <div className="flex-1 p-4 flex justify-between flex-col">
@@ -26,6 +32,7 @@ const Chat: React.FC<ChatProps> = ({ message }) => {
           placeholder="Type a message"
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="px-3 py-2 bg-white border border-gray-300 focus:outline-none focus:border-blue-500 w-full rounded-full h-14 pr-20"
         />
         <button onClick={handleSendMessage} className="bg-blue-500 text-white p-2 rounded-full absolute right-4 top-1/2 transform -translate-y-1/2">
