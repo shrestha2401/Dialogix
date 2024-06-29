@@ -4,29 +4,20 @@ import { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User, { UserDocument } from '../models/User'; // Adjust the import based on your User model definition
-
 function isError(error: any): error is Error {
   return error instanceof Error;
 }
-
-
 export const signup = async (req: Request, res: Response) => {
   const { username, email, password }: { username: string, email: string, password: string } = req.body;
 
   try {
-    // Check if user already exists
     const existingUser: UserDocument | null = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
-
-    // Hash the password
     const hashedPassword: string = await bcrypt.hash(password, 10);
-
-    // Create a new user
     const newUser: UserDocument = new User({ username, email, password: hashedPassword });
     await newUser.save();
-
     res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Unknown error occurred' });
