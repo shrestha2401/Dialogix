@@ -1,6 +1,6 @@
 # Dialogix
 
-This project is a ChatApp built with TypeScript and React for frontend. It provides functionalities such as sending friend requests, private chatting, and user profile management including uploading profile pictures.
+This project is a ChatApp built with TypeScript and Sockets.io. It provides functionalities such as sending friend requests, private chatting, and user profile management including uploading profile pictures.
 
 ## Features
 
