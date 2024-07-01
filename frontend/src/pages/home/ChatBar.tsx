@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 interface ChatBarProps {
   chatLists: string[];
   onChatItemClick: (chatMessage: string) => void;
@@ -10,7 +9,7 @@ const ChatBar: React.FC<ChatBarProps> = ({ chatLists, onChatItemClick }) => {
   return (
     <div className="w-80 bg-gray-100 border-r border-gray-300 flex flex-col">
       <div className="p-4 border-b border-gray-200">
-        <h3 className="text-lg font-semibold mb-2 text-center">Krishna Agrawal</h3>
+        <h3 className="text-lg font-semibold mb-2 text-center">Dialogix</h3>
         <input
           type="text"
           placeholder="Search for a chat"

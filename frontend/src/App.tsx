@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Chat from './pages/Chats';
-import ChatBar from './pages/try';
-import SideBar from './pages/SideBar';
+import Chat from './pages/home/Chats';
+import ChatBar from './pages/home/ChatBar';
+import SideBar from './pages/home/SideBar';
 const App: React.FC = () => {
   // State to hold the current chat message
   const [currentChat, setCurrentChat] = useState<string>('Click on a Chat to Start Messaging');

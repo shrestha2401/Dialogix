@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 // import './ChatBar.css'
 
-const recentChats = [
-  'Happy Birthday!',
-  'Good night!'
-];
+// const recentChats = [
+//   'Happy Birthday!',
+//   'Good night!'
+// ];
 
 const SideBar = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);

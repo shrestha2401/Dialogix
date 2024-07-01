@@ -1,0 +1,6 @@
+
+SECRET_KEY = "shresthapandey"
+MONGO_URI = "mongodb+srv://Dialogix:g9DEj5g*_%40hKpTz@atlascluster.dsyv8ho.mongodb.net/"
+PORT = 5000
+
+

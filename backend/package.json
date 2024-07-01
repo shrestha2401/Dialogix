@@ -4,8 +4,9 @@
     "dev": "nodemon"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
     "nodemon": "^3.1.4",
-     "ts-node": "^10.9.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.2"
   },
   "dependencies": {
@@ -17,10 +18,11 @@
     "@types/mongoose": "^5.11.97",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.3"
-   
+    "mongoose": "^8.4.3",
+    "socket.io": "^4.7.5"
   }
 }
