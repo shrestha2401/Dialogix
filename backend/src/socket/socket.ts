@@ -4,6 +4,7 @@ import express, { Application } from "express";
 
 const app: Application = express();
 const server: http.Server = http.createServer(app);
+
 const io: Server = new Server(server, {
   cors: {
     origin: ["http://localhost:5173"],

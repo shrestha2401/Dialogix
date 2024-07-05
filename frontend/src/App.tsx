@@ -1,41 +1,23 @@
-import React, { useState } from 'react';
-import Chat from './pages/home/Chats';
-import ChatBar from './pages/home/ChatBar';
-import SideBar from './pages/home/SideBar';
-const App: React.FC = () => {
-  // State to hold the current chat message
-  const [currentChat, setCurrentChat] = useState<string>('Click on a Chat to Start Messaging');
+import { Navigate, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/login";
+import SignUp from "./pages/signup/signup";
+import { Toaster } from "react-hot-toast";
+import { useAuthContext } from "./context/AuthContext";
 
-  // Function to handle chat list item click
-  const handleChatItemClick = (chatMessage: string) => {
-    setCurrentChat(chatMessage);
-  };
-
-  // Example chat lists
-  const chatLists: string[] = [
-    'Hello! How are you?',
-    'Are we meeting today?',
-    'Don’t forget to send the report.',
-    'Happy Birthday!',
-    'Good night!'
-  ];
-
-  return (
-    <div className="flex justify-center h-screen rounded-md"
-    style={{
-      backgroundImage: `url('https://cdn.wallpapersafari.com/8/65/3JE9fy.png')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    }}
-    >
-      <div className="max-w-screen-xl w-full flex my-6 bg-gray-100 border border-gray-300 rounded-lg opacity-90">
-        <SideBar/>
-        <ChatBar chatLists={chatLists} onChatItemClick={handleChatItemClick} />
-        <Chat message={currentChat} />
-
-      </div>
-    </div>
-  );
-};
+function App() {
+	const { authUser } = useAuthContext();
+	return (
+		<div className='p-4 h-screen flex items-center justify-center'>
+			<Routes>
+				<Route path='/' element={authUser ? <Home /> : <Navigate to={"/login"} />} />
+				<Route path='/login' element={authUser ? <Navigate to='/' /> : <Login />} />
+				<Route path='/signup' element={authUser ? <Navigate to='/' /> : <SignUp />} />
+			</Routes>
+			<Toaster />
+		</div>
+	);
+}
 
 export default App;

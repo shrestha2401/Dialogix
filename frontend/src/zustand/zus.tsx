@@ -1,12 +1,18 @@
 import create from 'zustand';
 
+interface Conversation {
+  _id: string;
+  profilePic: string;
+  fullName:string
+}
+
 interface ConversationState {
-  selectedConversation: string | null; 
+  selectedConversation: Conversation | null; 
   messages: any[];
 }
 
 interface ConversationActions extends ConversationState {
-  setSelectedConversation: (selectedConversation: string | null) => void;
+  setSelectedConversation: (selectedConversation: Conversation | null) => void;
   setMessages: (messages: any[]) => void;
 }
 
